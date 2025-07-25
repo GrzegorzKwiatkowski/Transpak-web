@@ -1,16 +1,15 @@
 <header class="bg-white shadow sticky top-0 z-50">
-  <div class="container mx-auto px-30 py-4 flex items-center justify-start">
+  <div class="container mx-auto px-4 py-4 flex items-center justify-between">
     <!-- Logo -->
     <a
       routerLink="/"
       routerLinkActive="text-blue-800 font-semibold"
       [routerLinkActiveOptions]="{ exact: true }"
-      class="flex items-center gap-2 pr-40 cursor-pointer"
+      class="flex items-center gap-2 cursor-pointer"
     >
       <svg
+        class="hidden md:block h-10 w-auto fill-current text-blue-900"
         viewBox="0 0 350 50"
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-10 w-auto fill-current text-blue-900"
       >
         <text x="0" y="35" font-size="36" font-family="Arial Black, sans-serif">
           TRANSPAK
@@ -19,10 +18,25 @@
           ®
         </text>
       </svg>
+
+      <!-- Mobile logo -->
+      <svg
+        class="block md:hidden h-10 w-auto fill-current text-blue-900"
+        viewBox="0 0 350 50"
+      >
+        <text x="0" y="35" font-size="36" font-family="Arial Black, sans-serif">
+          TRANSPAK
+        </text>
+        <text x="225" y="20" font-size="16" font-family="Arial, sans-serif">
+          ®
+        </text>
+      </svg>
     </a>
 
-    <!-- Nawigacja -->
-    <nav class="flex gap-40 text-gray-700 text-base text-xl">
+    <!-- Nawigacja na większych ekranach -->
+    <nav
+      class="hidden md:flex gap-10 lg:gap-20 text-gray-700 text-base lg:text-xl"
+    >
       <a
         routerLink="/"
         routerLinkActive="text-blue-800 font-semibold"
@@ -42,5 +56,56 @@
 
       <a href="#contact" class="hover:text-blue-800">Kontakt</a>
     </nav>
+
+    <!-- Ikona hamburgera (tylko mobile) -->
+    <button
+      class="md:hidden flex items-center text-blue-900 focus:outline-none"
+      (click)="toggleMenu()"
+    >
+      <svg
+        class="h-8 w-8"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+      </svg>
+    </button>
   </div>
+
+  <!-- Menu mobilne (po kliknięciu hamburgera) -->
+  @if (menuOpen) {
+  <div class="md:hidden bg-white border-t border-gray-200 shadow-lg">
+    <nav class="flex flex-col px-4 py-4 gap-4 text-gray-700 text-base">
+      <a
+        routerLink="/"
+        routerLinkActive="text-blue-800 font-semibold"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="cursor-pointer"
+        (click)="toggleMenu()"
+      >
+        Strona główna
+      </a>
+
+      <a
+        routerLink="/fundusze-europejskie"
+        routerLinkActive="text-blue-800 font-semibold"
+        class="cursor-pointer"
+        (click)="toggleMenu()"
+      >
+        Fundusze Europejskie
+      </a>
+
+      <a href="#contact" class="hover:text-blue-800" (click)="toggleMenu()">
+        Kontakt
+      </a>
+    </nav>
+  </div>
+  }
 </header>
