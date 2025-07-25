@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-eu-funding',
-  imports: [],
+  standalone: true,
+  imports: [RouterModule],
   templateUrl: './eu-funding.html',
-  styleUrl: './eu-funding.css'
+  styleUrls: ['./eu-funding.css']
 })
-export class EuFunding {
-
-}
+export class EuFunding {}

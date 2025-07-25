@@ -4,6 +4,7 @@ import { About } from './about/about';
 import { Contact } from './contact/contact';
 import { Footer } from './footer/footer';  
 import { EuFunding } from './eu-funding/eu-funding';
+import { FunduszeEuropejskie } from './pages/fundusze-europejskie/fundusze-europejskie';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -11,5 +12,7 @@ export const routes: Routes = [
   { path: 'kontakt', component: Contact },
   {path: 'stopka', component: Footer},
   { path: 'fundusze-eu', component: EuFunding },
-  { path: '**', redirectTo: '' }, // fallback na stronę główną
+  { path: 'fundusze-europejskie', component: FunduszeEuropejskie }, // dodanie trasy dla FunduszeEuropejskie
+  { path: '**', redirectTo: '' } // fallback na stronę główną
+  
 ];

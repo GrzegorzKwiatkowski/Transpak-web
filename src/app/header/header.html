@@ -1,7 +1,12 @@
 <header class="bg-white shadow sticky top-0 z-50">
   <div class="container mx-auto px-30 py-4 flex items-center justify-start">
     <!-- Logo -->
-    <a routerLink="/" class="flex items-center gap-2 pr-40">
+    <a
+      routerLink="/"
+      routerLinkActive="text-blue-800 font-semibold"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="flex items-center gap-2 pr-40 cursor-pointer"
+    >
       <svg
         viewBox="0 0 350 50"
         xmlns="http://www.w3.org/2000/svg"
@@ -18,15 +23,24 @@
 
     <!-- Nawigacja -->
     <nav class="flex gap-40 text-gray-700 text-base text-xl">
-      <a routerLink="/" routerLinkActive="text-blue-800 font-semibold"
-        >Strona główna</a
-      >
       <a
-        routerLink="/fundusze-eu"
+        routerLink="/"
         routerLinkActive="text-blue-800 font-semibold"
-        >Fundusze Europejskie</a
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="cursor-pointer"
       >
-      <a href="#footer" class="hover:text-blue-800">Kontakt</a>
+        Strona główna
+      </a>
+
+      <a
+        routerLink="/fundusze-europejskie"
+        routerLinkActive="text-blue-800 font-semibold"
+        class="cursor-pointer"
+      >
+        Fundusze Europejskie
+      </a>
+
+      <a href="#contact" class="hover:text-blue-800">Kontakt</a>
     </nav>
   </div>
 </header>
